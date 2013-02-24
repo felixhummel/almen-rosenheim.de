@@ -1,30 +1,26 @@
 angular.module("almen", ["leaflet-directive"]);
 function MainCtrl($scope) {
-  $scope.map = {
-    latlng: { lat: '47.8597', lng: '12.1177' },
-    zoom: 11,
-    marker: { lat: '47.8597', lng: '12.1177' },
-    message: 'foo'
-  };
   $scope.almen = [{
     name: 'Tregler Alm',
-    pt: {
-      latlng: { lat: '47.75443', lng: '11.99677'},
-      zoom: 16
-    },
+    lat: '47.75443',
+    lng: '11.99677',
     starting_points: [{
       name: 'Parkplatz Bundesstraße',
-      latlng: { lat: '47.76395', lng: '11.96540' },
-      zoom: 16
+      lat: '47.76395',
+      lng: '11.96540'
     }]
   }];
-  $scope.goTo = function(pt) {
-    $scope.map.latlng = pt.latlng;
-    $scope.map.marker = pt.latlng;
-  };
-  $scope.goAndZoom = function(pt) {
-    $scope.map.latlng = pt.latlng;
-    $scope.map.zoom = pt.zoom;
-  };
+  $scope.mapsURL = function(pt) {
+    return 'http://maps.google.com/?q=' + pt.lat + ',' + pt.lng;
+  }
+  $scope.route = function(start, finish) {
+    var params = [
+      'saddr=' + start.lat + ',' + start.lng,
+      'daddr=' + finish.lat + ',' + finish.lng,
+      't=h',  // map type (m = normal, k = sattelite, h = hybrid, p = terrain),
+      'dirflg=w'  // direction type (h = no highways, r = public transport only, w = walking)
+    ]
+    return 'https://maps.google.com/maps?' + params.join('&');
+  }
 }
 
