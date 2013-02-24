@@ -14,6 +14,7 @@ function MainCtrl($scope) {
     return 'http://maps.google.com/?q=' + pt.lat + ',' + pt.lng;
   }
   $scope.route = function(start, finish) {
+    // http://www.seomoz.org/ugc/everything-you-never-wanted-to-know-about-google-maps-parameters
     var params = [
       'saddr=' + start.lat + ',' + start.lng,
       'daddr=' + finish.lat + ',' + finish.lng,
