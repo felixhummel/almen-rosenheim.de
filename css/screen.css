@@ -1,6 +1,9 @@
 body {
   font-family: sans-serif;
 }
+.starting_point: {
+  margin-left: 5em;
+}
 div.map {
   width: 640px;
   height: 480px;
