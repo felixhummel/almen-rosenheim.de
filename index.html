@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="almen">
+  <head>
+    <meta charset="utf-8">
+    <title>TITLE</title>
+    <link rel="stylesheet" type="text/css" href="css/screen.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="css/print.css" media="print">
+    <link rel="stylesheet" type="text/css" href="css/leaflet.css">
+  </head>
+  <body ng-controller="MainCtrl">
+    <input type="number" ng-model="zoom">
+    <leaflet center="dafuq" zoom="zoom"></leaflet>
+    <div id="almen" ng-repeat="alm in almen">
+      <div class="alm">
+        <div>{{alm.name}}</div>
+        <div class="starting_points" ng-repeat="sp in alm.starting_points">
+          <div>{{sp.name}}</div>
+          <div>{{sp.lng}}, {{sp.lat}}</div> 
+        </div>
+      </div>
+    </div>
+    <script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/leaflet.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/angular-leaflet-directive.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>
