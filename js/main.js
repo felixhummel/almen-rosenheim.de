@@ -1,4 +1,4 @@
-angular.module("almen", ["leaflet-directive"]);
+angular.module("almen", []);
 function MainCtrl($scope) {
   $scope.almen = [{
     name: 'Tregler Alm',
