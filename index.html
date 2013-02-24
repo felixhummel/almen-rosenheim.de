@@ -9,14 +9,13 @@
     <link rel="stylesheet" type="text/css" href="css/leaflet.css">
   </head>
   <body ng-controller="MainCtrl">
-    <input type="number" ng-model="zoom">
-    <leaflet center="dafuq" zoom="zoom"></leaflet>
     <div id="almen" ng-repeat="alm in almen">
       <div class="alm">
         <div>{{alm.name}}</div>
         <div class="starting_points" ng-repeat="sp in alm.starting_points">
           <div>{{sp.name}}</div>
-          <div>{{sp.lng}}, {{sp.lat}}</div> 
+          <div>{{sp.latlng.lat}}, {{sp.latlng.lng}}</div> 
+          <leaflet center="sp.latlng" zoom="sp.zoom"></leaflet>
         </div>
       </div>
     </div>
